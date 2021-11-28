@@ -1,5 +1,17 @@
 <?php
 require "db.php";
+
+$ime = $_GET["fname"];
+$prezime = $_GET["lname"];
+
+//var_dump($_GET);
+
+$insert_query = "INSERT INTO users (first_name, last_name) values ('$ime', '$prezime')";
+
+var_dump($insert_query);
+$result = $mysqli->query($insert_query);
+
+echo $result;
 ?>
 
 <!doctype html>
@@ -16,6 +28,15 @@ require "db.php";
   </head>
   <body>
     <h1>Hello, world!</h1>
+	<form>
+		<label for="fname">First name:</label><br>
+		<input type="text" id="fname" name="fname"><br>
+		<label for="lname">Last name:</label><br>
+		<input type="text" id="lname" name="lname"><br><br>
+		<input type="submit" value="Submit">
+	</form> 
+	
+	
 
     <!-- Optional JavaScript; choose one of the two! -->
 
